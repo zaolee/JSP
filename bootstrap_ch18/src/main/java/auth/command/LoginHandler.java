@@ -13,7 +13,7 @@ import mvc.command.CommandHandler;
 
 public class LoginHandler implements CommandHandler {
 
-	private static final String FORM_VIEW = "/WEB-INF/view/loginForm.jsp";
+	private static final String FORM_VIEW = "/WEB-INF/view/member/loginForm.jsp";
 	private LoginService loginService = new LoginService();
 
 	@Override
@@ -35,14 +35,14 @@ public class LoginHandler implements CommandHandler {
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception {
-		String id = trim(req.getParameter("id"));
+		String id = trim(req.getParameter("email"));
 		String password = trim(req.getParameter("password"));
 
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
 
 		if (id == null || id.isEmpty())
-			errors.put("id", Boolean.TRUE);
+			errors.put("email", Boolean.TRUE);
 		if (password == null || password.isEmpty())
 			errors.put("password", Boolean.TRUE);
 
@@ -53,7 +53,7 @@ public class LoginHandler implements CommandHandler {
 		try {
 			User user = loginService.login(id, password);
 			req.getSession().setAttribute("authUser", user);
-			res.sendRedirect(req.getContextPath() + "/index.jsp");
+			res.sendRedirect(req.getContextPath() + "/main/index.do");
 			return null;
 		} catch (LoginFailException e) {
 			errors.put("idOrPwNotMatch", Boolean.TRUE);
