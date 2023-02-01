@@ -16,12 +16,12 @@ import org.apache.commons.dbcp2.PoolingDriver;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
-public class DBCPInitListener implements ServletContextListener {
+public class DBCPInitListener implements ServletContextListener { // ServletContextListener 상속받은 구현 클래스
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		String poolConfig = 
-				sce.getServletContext().getInitParameter("poolConfig");
+				sce.getServletContext().getInitParameter("poolConfig"); // 커넥션 풀을 만드는...
 		Properties prop = new Properties();
 		try {
 			prop.load(new StringReader(poolConfig));

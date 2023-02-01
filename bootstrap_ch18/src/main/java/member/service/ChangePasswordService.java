@@ -18,7 +18,7 @@ public class ChangePasswordService {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 			
-			Member member = memberDao.selectById(conn, userId);
+			Member member = memberDao.selectByEmail(conn, userId);
 			if (member == null) {
 				throw new MemberNotFoundException();
 			}

@@ -11,16 +11,16 @@ public class LoginService {
 
 	private MemberDao memberDao = new MemberDao();
 
-	public User login(String id, String password) {
+	public User login(String email, String password) {
 		try (Connection conn = ConnectionProvider.getConnection()) {
-			Member member = memberDao.selectById(conn, id); // dao에 객체를 넘기는거
+			Member member = memberDao.selectByEmail(conn, email); // dao에 객체를 넘기는거
 			if (member == null) {
 				throw new LoginFailException();
 			}
 			if (!member.matchPassword(password)) {
 				throw new LoginFailException();
 			}
-			return new User(member.getId(), member.getName());
+			return new User(member.getEmail(), member.getName());
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

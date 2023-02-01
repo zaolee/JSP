@@ -13,7 +13,7 @@ public class LogoutHandler implements CommandHandler {
 	throws Exception {
 		HttpSession session = req.getSession(false);
 		if (session != null) {
-			session.invalidate();
+			session.invalidate(); // 세션 날리는거
 		}
 		res.sendRedirect(req.getContextPath() + "/index.jsp");
 		return null;

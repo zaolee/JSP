@@ -60,7 +60,7 @@ public class ModifyArticleHandler implements CommandHandler {
 
 	private boolean canModify(User authUser, ArticleData articleData) {
 		String writerId = articleData.getArticle().getWriter().getId();
-		return authUser.getId().equals(writerId);
+		return authUser.getId().equals(writerId); // db에 있는 유저의 아이디(현재 로그인한 자)와 작성자가 같은지
 	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res)

@@ -25,7 +25,7 @@ public class ModifyArticleService {
 			if (article == null) {
 				throw new ArticleNotFoundException();
 			}
-			if (!canModify(modReq.getUserId(), article)) {
+			if (!canModify(modReq.getUserId(), article)) { // 로그인한 사람이 작성자인지 확인하는 로직(작성자 = 로그인한 자 되어야 수정가능)
 				throw new PermissionDeniedException();
 			}
 			articleDao.update(conn, 
@@ -45,6 +45,6 @@ public class ModifyArticleService {
 	}
 
 	private boolean canModify(String modfyingUserId, Article article) {
-		return article.getWriter().getId().equals(modfyingUserId);
+		return article.getWriter().getId().equals(modfyingUserId); // 작성자의 id 와 modfyingUserId가 같은지
 	}
 }

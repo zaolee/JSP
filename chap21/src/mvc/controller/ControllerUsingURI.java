@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import mvc.command.CommandHandler;
 import mvc.command.NullHandler;
 
+// servlet : http 통신(요청,응답)을 할 수 있는 자바클래스
 public class ControllerUsingURI extends HttpServlet {
 
     // <커맨드, 핸들러인스턴스> 매핑 정보 저장
@@ -59,17 +60,17 @@ public class ControllerUsingURI extends HttpServlet {
 
     private void process(HttpServletRequest request,
     HttpServletResponse response) throws ServletException, IOException {
-		String command = request.getRequestURI();
+		String command = request.getRequestURI(); // "/join.do"
 		if (command.indexOf(request.getContextPath()) == 0) {
 			command = command.substring(request.getContextPath().length());
 		}
-        CommandHandler handler = commandHandlerMap.get(command);
+        CommandHandler handler = commandHandlerMap.get(command); // "joinHandler객체"
         if (handler == null) {
             handler = new NullHandler();
         }
         String viewPage = null;
         try {
-            viewPage = handler.process(request, response);
+            viewPage = handler.process(request, response); // "/WEB-INF/view/joinForm.jsp"
         } catch (Throwable e) {
             throw new ServletException(e);
         }

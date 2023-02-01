@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-public class CharacterEncodingFilter implements Filter {
+public class CharacterEncodingFilter implements Filter { // web.xml에 설정 되어 있음
 
 	private String encoding;
 	
@@ -17,6 +17,7 @@ public class CharacterEncodingFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
 		req.setCharacterEncoding(encoding);
+		
 		chain.doFilter(req, res);
 	}
 

@@ -36,6 +36,7 @@ public class ArticleDao {
 				rs = stmt.executeQuery("select last_insert_id() from article");
 				if (rs.next()) {
 					Integer newNo = rs.getInt(1);
+					System.out.println("/* newNo = " + newNo);
 					return new Article(newNo,
 							article.getWriter(),
 							article.getTitle(),

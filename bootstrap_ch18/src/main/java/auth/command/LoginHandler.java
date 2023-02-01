@@ -35,13 +35,13 @@ public class LoginHandler implements CommandHandler {
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception {
-		String id = trim(req.getParameter("email"));
+		String email = trim(req.getParameter("email"));
 		String password = trim(req.getParameter("password"));
 
-		Map<String, Boolean> errors = new HashMap<>();
+		Map<String, Boolean> errors = new HashMap<>(); // {"id":true}
 		req.setAttribute("errors", errors);
 
-		if (id == null || id.isEmpty())
+		if (email == null || email.isEmpty())
 			errors.put("email", Boolean.TRUE);
 		if (password == null || password.isEmpty())
 			errors.put("password", Boolean.TRUE);
@@ -51,7 +51,7 @@ public class LoginHandler implements CommandHandler {
 		}
 
 		try {
-			User user = loginService.login(id, password);
+			User user = loginService.login(email, password);
 			req.getSession().setAttribute("authUser", user);
 			res.sendRedirect(req.getContextPath() + "/main/index.do");
 			return null;

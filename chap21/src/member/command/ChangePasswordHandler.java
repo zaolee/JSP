@@ -36,7 +36,7 @@ public class ChangePasswordHandler implements CommandHandler {
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res)
 	throws Exception {
-		User user = (User)req.getSession().getAttribute("authUser");
+		User user = (User)req.getSession().getAttribute("authUser"); // id랑 name : authUser
 			
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);

@@ -6,10 +6,13 @@
              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 
+	<welcome-file-list><!-- 첫 화면 띄우도록 -->
+		<welcome-file>/WEB-INF/view/member/loginForm.jsp</welcome-file>
+	</welcome-file-list>
+
 	<listener>
 		<listener-class>jdbc.DBCPInitListener</listener-class>
 	</listener>
-
 	<context-param>
 		<param-name>poolConfig</param-name>
 		<param-value>
@@ -22,7 +25,7 @@
 			maxTotal=30
 			poolName=board
 		</param-value>
-		
+
 	</context-param>
 	<filter>
 		<filter-name>LoginCheck</filter-name>
@@ -37,7 +40,7 @@
 	</filter-mapping>
 
 	<session-config>
-		<session-timeout>1</session-timeout>
+		<session-timeout>100</session-timeout>
 	</session-config>
 
 	<servlet>

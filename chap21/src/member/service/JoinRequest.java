@@ -3,6 +3,7 @@ package member.service;
 import java.util.Map;
 
 public class JoinRequest {
+	// 자바빈 객체
 
 	private String id;
 	private String name;

@@ -36,7 +36,7 @@ public class WriteArticleHandler implements CommandHandler {
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
 
-		User user = (User)req.getSession(false).getAttribute("authUser");
+		User user = (User)req.getSession(false).getAttribute("authUser"); // 세션이 authUser로 들어와 있슈
 		WriteRequest writeReq = createWriteRequest(user, req);
 		writeReq.validate(errors);
 		

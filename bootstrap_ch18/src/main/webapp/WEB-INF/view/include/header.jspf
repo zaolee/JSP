@@ -170,7 +170,8 @@
 								class="user-image" alt="User Image"> 
 								<%-- <span class="hidden-xs"><%=cookies.getValue("AUTH")%></span> --%>
 								<%-- <span class="hidden-xs"><%=(String)session.getAttribute("MEMBERID")%></span> --%>
-								<span class="hidden-xs"><%=(String) session.getAttribute("name")%></span>
+<%-- 								<span class="hidden-xs"><%=(String) session.getAttribute("authUser")%></span> --%>
+								<span class="hidden-xs">${authUser.name}</span>
 						</a>
 							<ul class="dropdown-menu">
 								<!-- User image -->

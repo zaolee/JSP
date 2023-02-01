@@ -30,7 +30,7 @@ public class LoginHandler implements CommandHandler {
 	}
 
 	private String processForm(HttpServletRequest req, HttpServletResponse res) {
-		return FORM_VIEW;
+		return FORM_VIEW; // 단순하게 "/WEB-INF/view/loginForm.jsp" 이거 리턴 해주는거
 	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res) 

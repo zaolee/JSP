@@ -16,13 +16,13 @@ public class WriteArticleService {
 	private ArticleDao articleDao = new ArticleDao();
 	private ArticleContentDao contentDao = new ArticleContentDao();
 
-	public Integer write(WriteRequest req) {
+	public Integer write(WriteRequest req) { 
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 
-			Article article = toArticle(req);
+			Article article = toArticle(req); // Article (title) <- WriteRequest(title & content)
 			Article savedArticle = articleDao.insert(conn, article);
 			if (savedArticle == null) {
 				throw new RuntimeException("fail to insert article");

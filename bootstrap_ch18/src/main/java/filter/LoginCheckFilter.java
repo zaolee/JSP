@@ -25,7 +25,7 @@ public class LoginCheckFilter implements Filter {
 
 		boolean login = false;
 		if (session != null) {
-			if (session.getAttribute("MEMBERID") != null) { // member의 값이 있으면
+			if (session.getAttribute("authUser") != null) { // member의 값이 있으면
 				login = true;
 			}
 		}

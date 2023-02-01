@@ -4,20 +4,20 @@ import java.util.Date;
 
 public class Member { // 자바빈(value object)
 
-	private String id;
+	private String email;
 	private String name;
 	private String password;
 	private Date regDate;
 
-	public Member(String id, String name, String password, Date regDate) {
-		this.id = id;
+	public Member(String email, String name, String password, Date regDate) {
+		this.email = email;
 		this.name = name;
 		this.password = password;
 		this.regDate = regDate;
 	}
 
-	public String getId() {
-		return id;
+	public String getEmail() {
+		return email;
 	}
 
 	public String getName() {

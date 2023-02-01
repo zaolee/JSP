@@ -17,7 +17,7 @@
 		<td>작성자</td>
 		<td>조회수</td>
 	</tr>
-<c:if test="${articlePage.hasNoArticles()}">
+<c:if test="${articlePage.hasNoArticles()}"> <!-- f임 게시글 잇냐고 물어보는거  -->
 	<tr>
 		<td colspan="4">게시글이 없습니다.</td>
 	</tr>
@@ -34,7 +34,7 @@
 		<td>${article.readCount}</td>
 	</tr>
 </c:forEach>
-<c:if test="${articlePage.hasArticles()}">
+<c:if test="${articlePage.hasArticles()}"> 
 	<tr>
 		<td colspan="4">
 			<c:if test="${articlePage.startPage > 5}">
@@ -43,9 +43,9 @@
 			<c:forEach var="pNo" 
 					   begin="${articlePage.startPage}" 
 					   end="${articlePage.endPage}">
-			<a href="list.do?pageNo=${pNo}">[${pNo}]</a>
+			<a href="list.do?pageNo=${pNo}">[${pNo}]</a> <!-- [1][2] 이런거 보여주는거 -->
 			</c:forEach>
-			<c:if test="${articlePage.endPage < articlePage.totalPages}">
+			<c:if test="${articlePage.endPage < articlePage.totalPages}"> <!-- 여기서 f가 뜨면 [다음] 이 뜨지 않음 -->
 			<a href="list.do?pageNo=${articlePage.startPage + 5}">[다음]</a>
 			</c:if>
 		</td>

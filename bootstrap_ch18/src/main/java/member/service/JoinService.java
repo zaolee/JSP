@@ -19,7 +19,7 @@ public class JoinService {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 
-			Member member = memberDao.selectById(conn, joinReq.getEmail());
+			Member member = memberDao.selectByEmail(conn, joinReq.getEmail());
 			if (member != null) {
 				JdbcUtil.rollback(conn);
 				throw new DuplicateIdException();

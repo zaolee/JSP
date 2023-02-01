@@ -26,7 +26,7 @@ public class JoinService {
 			}
 
 			memberDao.insert(conn, new Member(joinReq.getId(), joinReq.getName(), joinReq.getPassword(), new Date()));
-			conn.commit();
+			conn.commit(); // 22행부터 29행까지 트랜잭션임
 		} catch (SQLException e) {
 			JdbcUtil.rollback(conn);
 			throw new RuntimeException(e);

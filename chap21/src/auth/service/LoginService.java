@@ -13,7 +13,7 @@ public class LoginService {
 
 	public User login(String id, String password) {
 		try (Connection conn = ConnectionProvider.getConnection()) {
-			Member member = memberDao.selectById(conn, id);
+			Member member = memberDao.selectById(conn, id); // dao에 객체를 넘기는거
 			if (member == null) {
 				throw new LoginFailException();
 			}

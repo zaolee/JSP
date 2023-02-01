@@ -20,6 +20,7 @@
 --%>
 <u:isLogin>
 	CT: ${authUser.name}님, 안녕하세요.
+<%-- 	CT: ${authUser.getName()}님, 안녕하세요. 이런식으로 get에서 가져오는거!--%>
 	<a href="logout.do">[로그아웃하기]</a>
 	<a href="changePwd.do">[암호변경하기]</a>
 </u:isLogin>
